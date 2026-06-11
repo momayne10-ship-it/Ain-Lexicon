@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>معجم العين – أول معجم عربي ذكي (النسخة المتقدمة)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="open-book.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1E4D2B">
+    <style>
+        .rounded-full { border-radius: 9999px !important; padding: 0.5rem 1.5rem !important; font-weight: 600; font-family: 'Amiri', serif !important; }
+        .swal2-popup { font-family: 'Amiri', serif !important; border-radius: 1.5rem !important; }
+        .swal2-confirm { border-radius: 9999px !important; }
+        .perm-self { border: 2px solid #d4af37 !important; background: #fffaf0 !important; font-weight: 700; }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <nav id="navbar" class="navbar">
+            <div class="container navbar-container">
+                <a href="#" class="logo"><div class="logo-icon"><i class="fa-solid fa-book-open"></i></div><div><h2> النمذجة الرياضية لمعجم العين</h2><p>أول معجم عربي شامل</p></div></a>
+                <div class="nav-links"><a href="#">الرئيسية</a><a href="#">البحث المتقدم</a><a href="#">الأبواب</a><a href="#">مخارج الحروف</a><a href="#">تواصل</a></div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fa-solid fa-ellipsis"></i></button>
+            </div>
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#home">الرئيسية</a>
+    <a href="#searchWrapper">البحث المتقدم</a>
+    <a href="#abwab">الأبواب</a>
+    <a href="#makharij">مخارج الحروف</a>
+    <a href="#about">عن معجم العين</a>
+    <a href="#contact">اتصال</a>
+</div>       </nav>
+        <div class="hero-content">
+            <div class="container hero-container">
+                <div class="hero-text">
+                    <span class="hero-badge"><i class="fa-solid fa-landmark"></i> موروث لغوي عريق</span>
+                    <h1>معجم <span class="text-gold">العين</span></h1>
+                    <p>أول معجم عربي يُصنّف الكلمات حسب مخارج الحروف وأوزان الأصول. ابحث عن أي كلمة لتكتشف جذرها، تقليباتها، وأصلها اللغوي.</p>
+                    <div class="search-wrapper" id="searchWrapper">
+                        <div class="search-tabs"><span class="search-tab active" data-mode="word">بحث بالكلمة</span><span class="search-tab" data-mode="root">بحث بالجذر</span><span class="search-tab" data-mode="letters">بحث بالحروف</span></div>
+                        <div class="search-input-group"><input type="text" id="searchInput" placeholder="اكتب الكلمة هنا... مثال: كتب، علم، خرج" autocomplete="off"><button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i> بحث</button></div>
+                        <div class="suggestions-dropdown" id="suggestionsDropdown"></div>
+                    </div>
+                    <div class="hero-stats"><div><i class="fa-solid fa-chart-line"></i> أكثر من 8000 جذر</div><div><i class="fa-solid fa-diagram-project"></i> 5 أبواب رئيسية</div><div><i class="fa-solid fa-microphone-alt"></i> مخارج حروف تفاعلية</div></div>
+                </div>
+                <div class="hero-decoration"><i class="fa-solid fa-asterisk"></i><i class="fa-solid fa-circle"></i><i class="fa-solid fa-asterisk"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- أبواب المعجم (5 أبواب فقط) -->
+    <section class="abwab-section" id="abwab"><div class="container"><div class="section-header"><span class="section-badge"><i class="fa-solid fa-layer-group"></i> أبواب المعجم</span><h2>تصنيف <span class="text-gold">الجذور</span> حسب عدد الحروف</h2><div class="title-divider"></div><p>يعتمد معجم العين على نظام ترتيب الجذور وفق عدد حروفها الأصلي، من الثنائي إلى الخماسي، بالإضافة إلى ملحق الأبواب.</p></div><div class="abwab-grid"><div class="abwab-card" data-bab="ثنائي"><div class="abwab-icon"><i class="fa-solid fa-2"></i></div><h3>باب الثنائي</h3><p>الجذور المكونة من حرفين أصليين، وهي نادرة ولكنها أصلية في العربية.</p><div class="abwab-example">مثال: "لو" (سيتاح قريباً)</div><button class="abwab-btn" data-bab="ثنائي">استعراض الكلمات</button></div><div class="abwab-card" data-bab="ثلاثي"><div class="abwab-icon"><i class="fa-solid fa-3"></i></div><h3>باب الثلاثي</h3><p>أكثر الأبواب انتشاراً، يشكل غالبية اللغة العربية.</p><div class="abwab-example">مثال: "كتب" (ك، ت، ب)</div><button class="abwab-btn" data-bab="ثلاثي">استعراض الكلمات</button></div><div class="abwab-card" data-bab="رباعي"><div class="abwab-icon"><i class="fa-solid fa-4"></i></div><h3>باب الرباعي</h3><p>جذور رباعية مثل "دحرج"، "وسوس".</p><div class="abwab-example">مثال: "دحرج" (د، ح، ر، ج)</div><button class="abwab-btn" data-bab="رباعي">استعراض الكلمات</button></div><div class="abwab-card" data-bab="خماسي"><div class="abwab-icon"><i class="fa-solid fa-5"></i></div><h3>باب الخماسي</h3><p>جذور خماسية قليلة، غالباً ما تكون مضعفة أو مزيدة.</p><div class="abwab-example">مثال: "سفرجل" (س، ف، ر، ج، ل)</div><button class="abwab-btn" data-bab="خماسي">استعراض الكلمات</button></div><div class="abwab-card" data-bab="ملحق"><div class="abwab-icon"><i class="fa-solid fa-asterisk"></i></div><h3>ملحق بالأبواب</h3><p>أفعال مزيدة، جذور معتلة، ولفيفة.</p><div class="abwab-example">مثال: "أوى"، "حيق"، "قوي"</div><button class="abwab-btn" data-bab="ملحق">استعراض الكلمات</button></div></div></div></section>
+
+    <!-- مخارج الحروف (بدون تغيير) -->
+    <section class="makharij-section" id="makharij"><div class="container"><div class="section-header"><span class="section-badge"><i class="fa-solid fa-microphone-alt"></i> مخارج الحروف</span><h2>تعلم <span class="text-gold">مخارج الحروف</span> العربية</h2><div class="title-divider"></div><p>استمع واكتشف الموضع الصحيح لخروج كل حرف من الجوف، الحلق، الشفتين، واللسان – كما ورد في معجم العين وعلم التجويد.</p></div><div class="makharij-grid"><div class="makhraj-group"><h3 class="group-title"><i class="fa-solid fa-lungs"></i> الجوف والحلق</h3><div class="letters-grid"><div class="letter-card" data-letter="ء" data-makhraj="أقصى الحلق" data-pronounce="ء"><span class="letter-text">ء (همزة)</span><i class="fa-solid fa-volume-high sound-icon"></i></div><div class="letter-card" data-letter="ه" data-makhraj="أقصى الحلق" data-pronounce="ه"><span class="letter-text">هـ</span><i class="fa-solid fa-volume-high sound-icon"></i></div><div class="letter-card" data-letter="ع" data-makhraj="وسط الحلق" data-pronounce="ع"><span class="letter-text">ع</span><i class="fa-solid fa-volume-high sound-icon"></i></div><div class="letter-card" data-letter="ح" data-makhraj="وسط الحلق" data-pronounce="ح"><span class="letter-text">ح</span><i class="fa-solid fa-volume-high sound-icon"></i></div><div class="letter-card" data-letter="غ" data-makhraj="أدنى الحلق" data-pronounce="غ"><span class="letter-text">غ</span><i class="fa-solid fa-volume-high sound-icon"></i></div><div class="letter-card" data-letter="خ" data-makhraj="أدنى الحلق" data-pronounce="خ"><span class="letter-text">خ</span><i class="fa-solid fa-volume-high sound-icon"></i></div></div></div><div class="makhraj-group"><h3 class="group-title"><i class="fa-solid fa-tongue"></i> أقصى اللسان</h3><div class="letters-grid"><div class="letter-card" data-letter="ق" data-makhraj="أقصى اللسان مع الحنك الأعلى" data-pronounce="ق"><span class="letter-text">ق</span><i class="fa-solid fa-volume-high sound-icon"></i></div><div class="letter-card" data-letter="ك" data-makhraj="أسفل من القاف قليلاً" data-pronounce="ك"><span class="letter-text">ك</span><i class="fa-solid fa-volume-high sound-icon"></i></div></div></div><div class="makhraj-group"><h3 class="group-title"><i class="fa-solid fa-tongue"></i> وسط اللسان</h3><div class="letters-grid"><div class="letter-card" data-letter="ج" data-makhraj="وسط اللسان مع الحنك" data-pronounce="ج"><span class="letter-text">ج</span><i class="fa-solid fa-volume-high sound-icon"></i></div><div class="letter-card" data-letter="ش" data-makhraj="وسط اللسان مع الحنك" data-pronounce="ش"><span class="letter-text">ش</span><i class="fa-solid fa-volume-high sound-icon"></i></div><div class="letter-card" data-letter="ي" data-makhraj="وسط اللسان مع الحنك (غير مدية)" data-pronounce="ي"><span class="letter-text">ي</span><i class="fa-solid fa-volume-high sound-icon"></i></div></div></div><div class="makhraj-group"><h3 class="group-title"><i class="fa-solid fa-tongue"></i> حافة اللسان</h3><div class="letters-grid"><div class="letter-card" data-letter="ض" data-makhraj="حافة اللسان مع الأضراس" data-pronounce="ض"><span class="letter-text">ض</span><i class="fa-solid fa-volume-high sound-icon"></i></div></div></div><div class="makhraj-group"><h3 class="group-title"><i class="fa-solid fa-tongue"></i> طرف اللسان</h3><div class="letters-grid"><div class="letter-card" data-letter="ل" data-makhraj="طرف اللسان مع الثنايا" data-pronounce="ل"><span class="letter-text">ل</span><i class="fa-solid fa-volume-high sound-icon"></i></div><div class="letter-card" data-letter="ن" data-makhraj="طرف اللسان مع الغار" data-pronounce="ن"><span class="letter-text">ن</span><i class="fa-solid fa-volume-high sound-icon"></i></div><div class="letter-card" data-letter="ر" data-makhraj="طرف اللسان مع الحنك" data-pronounce="ر"><span class="letter-text">ر</span><i class="fa-solid fa-volume-high sound-icon"></i></div><div class="letter-card" data-letter="ت" data-makhraj="طرف اللسان مع الثنايا" data-pronounce="ت"><span class="letter-text">ت</span><i class="fa-solid fa-volume-high sound-icon"></i></div><div class="letter-card" data-letter="د" data-makhraj="طرف اللسان مع الثنايا" data-pronounce="د"><span class="letter-text">د</span><i class="fa-solid fa-volume-high sound-icon"></i></div><div class="letter-card" data-letter="ط" data-makhraj="طرف اللسان مع الثنايا" data-pronounce="ط"><span class="letter-text">ط</span><i class="fa-solid fa-volume-high sound-icon"></i></div><div class="letter-card" data-letter="س" data-makhraj="طرف اللسان مع الثنايا" data-pronounce="س"><span class="letter-text">س</span><i class="fa-solid fa-volume-high sound-icon"></i></div><div class="letter-card" data-letter="ز" data-makhraj="طرف اللسان مع الثنايا" data-pronounce="ز"><span class="letter-text">ز</span><i class="fa-solid fa-volume-high sound-icon"></i></div><div class="letter-card" data-letter="ص" data-makhraj="طرف اللسان مع الثنايا" data-pronounce="ص"><span class="letter-text">ص</span><i class="fa-solid fa-volume-high sound-icon"></i></div><div class="letter-card" data-letter="ظ" data-makhraj="طرف اللسان مع الثنايا العليا" data-pronounce="ظ"><span class="letter-text">ظ</span><i class="fa-solid fa-volume-high sound-icon"></i></div><div class="letter-card" data-letter="ذ" data-makhraj="طرف اللسان مع الثنايا العليا" data-pronounce="ذ"><span class="letter-text">ذ</span><i class="fa-solid fa-volume-high sound-icon"></i></div><div class="letter-card" data-letter="ث" data-makhraj="طرف اللسان مع الثنايا السفلى" data-pronounce="ث"><span class="letter-text">ث</span><i class="fa-solid fa-volume-high sound-icon"></i></div></div></div><div class="makhraj-group"><h3 class="group-title"><i class="fa-solid fa-lips"></i> الشفتان</h3><div class="letters-grid"><div class="letter-card" data-letter="ف" data-makhraj="باطن الشفة السفلى مع الثنايا" data-pronounce="ف"><span class="letter-text">ف</span><i class="fa-solid fa-volume-high sound-icon"></i></div><div class="letter-card" data-letter="ب" data-makhraj="الشفتين معاً" data-pronounce="ب"><span class="letter-text">ب</span><i class="fa-solid fa-volume-high sound-icon"></i></div><div class="letter-card" data-letter="م" data-makhraj="الشفتين معاً" data-pronounce="م"><span class="letter-text">م</span><i class="fa-solid fa-volume-high sound-icon"></i></div><div class="letter-card" data-letter="و" data-makhraj="الشفتين معاً (غير مدية)" data-pronounce="و"><span class="letter-text">و</span><i class="fa-solid fa-volume-high sound-icon"></i></div></div></div><div class="makhraj-group"><h3 class="group-title"><i class="fa-solid fa-nose"></i> الخيشوم</h3><div class="letters-grid"><div class="letter-card" data-letter="غنة" data-makhraj="الأنف (غنة النون والميم المشددتين)" data-pronounce="غنّة"><span class="letter-text">غنة</span><i class="fa-solid fa-volume-high sound-icon"></i></div></div></div></div><div class="makharij-note"><i class="fa-solid fa-circle-info"></i> اضغط على أي حرف لسماع نطقه ومعرفة مخرجه.</div></div></section>
+
+    <!-- نتائج البحث -->
+    <section class="word-result-section" id="wordResultSection" style="display: none;"><div class="container"><div class="section-header"><span class="section-badge"><i class="fa-solid fa-magnifying-glass"></i> نتيجة البحث</span><h2>نتائج البحث عن: <span id="resultsQueryTitle" class="text-gold">---</span></h2><div class="title-divider"></div></div><div id="resultsListContainer" class="results-list-container"></div><div id="noResultsMessage" class="demo-note" style="display: none;"><i class="fa-regular fa-face-frown"></i> لا توجد نتائج مطابقة. جرب البحث بكلمة أو جذر آخر.</div></div></section>
+
+    <!-- مودال تفاصيل الكلمة -->
+    <div class="modal-overlay" id="wordModalOverlay" style="display: none;"><div class="modal" id="wordModal"><button class="modal-close" id="closeModalBtn">&times;</button><div class="modal-content" id="modalContent"></div></div></div>
+
+    <!-- المفضلة وسجل البحث -->
+    <section class="extra-features" id="extraFeatures"><div class="container"><div class="features-wrapper"><div class="favorites-card"><div class="card-header"><i class="fa-solid fa-heart text-gold"></i><h3>كلماتي المفضلة</h3><button id="clearFavoritesBtn" class="clear-btn"><i class="fa-regular fa-trash-can"></i></button></div><ul id="favoritesList" class="favorites-list"><li class="empty-msg">لا توجد كلمات مفضلة بعد. أضف كلمات من نتائج البحث.</li></ul></div><div class="history-card"><div class="card-header"><i class="fa-solid fa-clock-rotate-left"></i><h3>آخر عمليات بحث</h3><button id="clearHistoryBtn" class="clear-btn"><i class="fa-regular fa-trash-can"></i></button></div><ul id="historyList" class="history-list"><li class="empty-msg">لا يوجد سجل بحث بعد.</li></ul></div></div></div></section>
+
+    <!-- عن معجم العين -->
+    <section class="about-section" id="about"><div class="container"><div class="section-header"><span class="section-badge"><i class="fa-regular fa-landmark"></i> تراث لغوي</span><h2>عن <span class="text-gold">معجم العين</span></h2><div class="title-divider"></div></div><div class="about-content"><div class="about-text"><p><strong>معجم العين</strong> هو أول معجم عربي وضعه الخليل بن أحمد الفراهيدي. اعتمد فيه منهجاً فريداً بترتيب الكلمات حسب <strong>مخارج الحروف</strong> من أقصى الحلق إلى الشفتين، مبتدئاً بالعين (أقصى الحلق) ومنتهياً بالياء.</p><p>يُعتبر هذا المعجم أساس علم العروض وعلم الصرف العربي. يحتوي على أكثر من <strong>8000 جذر لغوي</strong> مصنفة وفق نظام التقليبات التي تكشف العلاقات بين الكلمات.</p><p>من خلال هذا الموقع، نُحيي هذا الإرث العظيم ونجعله في متناول الباحثين والطلاب.</p></div><div class="about-stats"><div class="stat-box"><span>+98</span><br>جذر لغوي (نسخة نظيفة)</div><div class="stat-box"><span>5</span><br>أبواب رئيسية</div><div class="stat-box"><span>17</span><br>مخرجاً للحروف</div><div class="stat-box"><span>العين</span><br>أول حرف في المعجم</div></div></div></div></section>
+        <!-- تواصل -->
+    <section class="contact-info-section" id="contact"><div class="container"><div class="section-header"><span class="section-badge"><i class="fa-regular fa-address-card"></i> تواصل معنا</span><h2>كن <span class="text-gold">على تواصل</span> مع فريق معجم العين</h2><div class="title-divider"></div><p>نرحّب باستفساراتكم ومقترحاتكم. يمكنكم التواصل معنا عبر القنوات التالية.</p></div><div class="contact-cards"><div class="contact-card"><div class="contact-icon"><i class="fa-regular fa-envelope"></i></div><h3>البريد الإلكتروني</h3><p>mariammokhtari2003@gmail.com </p></div><div class="contact-card"><div class="contact-icon"><i class="fa-solid fa-phone-volume"></i></div><h3>الهاتف</h3><p>213792091104+</p></div><div class="contact-card"><div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div><h3>المقر الرئيسي</h3><p>الجزائر العاصمة، المسيلة</p><p>متوفرون أونلاين 24/7</p></div></div><div class="social-media"><h3>تابعنا على وسائل التواصل</h3><div class="social-icons"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-twitter"></i></a><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-whatsapp"></i></a><a href="#"><i class="fa-brands fa-telegram"></i></a></div></div></div></section>
+
+    <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-col"><div class="footer-logo"><i class="fa-solid fa-book-open"></i><span>معجم العين</span></div><p>أول معجم عربي يُرتَّب حسب مخارج الحروف، للخليل بن أحمد الفراهيدي. نُحيي تراثه رقمياً.</p></div><div class="footer-col"><h4>روابط سريعة</h4><ul><li><a href="#">الرئيسية</a></li><li><a href="#abwab">الأبواب</a></li><li><a href="#makharij">مخارج الحروف</a></li><li><a href="#wordResultSection">نتائج البحث</a></li><li><a href="#contact">تواصل</a></li></ul></div><div class="footer-col"><h4>مشروع معجم العين</h4><ul><li><a href="#">عن المشروع</a></li><li><a href="#">فريق العمل</a></li><li><a href="#">المصادر والمراجع</a></li><li><a href="#">الشروط والأحكام</a></li></ul></div><div class="footer-col"><h4>تواصل معنا</h4><div class="footer-contact"><p><i class="fa-regular fa-envelope"></i>mariammokhtari2003@gmail.com </p><p><i class="fa-solid fa-phone"></i> 213792091104+</p></div><div class="footer-social"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-twitter"></i></a><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-youtube"></i></a></div></div></div><div class="footer-bottom"><p>&copy; 2026 معجم العين – جميع الحقوق محفوظة | تصميم وتطوير <strong>G Mayne</strong></p></div></div></footer>
+
+    <button id="backToTopBtn" class="back-to-top"><i class="fa-solid fa-chevron-up"></i></button>
+
+    <script>
+        // ==================== قاعدة البيانات الجديدة (نسخة نهائية بدون تكرار، مع 6 تقليبات لكل كلمة في الثلاثي) ====================
+        const dictionaryDB = [];
+
+        function addEntry(id, word, root, rootLetters, meaning, isUsed, chapter, permutations, type = null) {
+            let entry = { id, word, root, rootLetters, meaning, isUsed, chapter, derivations: [], permutations };
+            if (type) entry.type = type;
+            dictionaryDB.push(entry);
+        }
+
+        // ---------------------- باب الثنائي (36 كلمة) ----------------------
+        addEntry(1, "عق", "ع ق", ["ع","ق"], "عق الرجل عن ابنه يعق اذا حَلق عقيقته وذبح عنه الشاه وتسمى عقيقة.", true, "ثنائي", [{ letters: "قع", status: "مهملة", isUsed: false }]);
+        addEntry(2, "قع", "ق ع", ["ق","ع"], "ماءٌ مرٌ غليظ", false, "ثنائي", [{ letters: "عق", status: "مستعملة", isUsed: true }]);
+        addEntry(3, "عج", "ع ج", ["ع","ج"], "رفع الصوت", true, "ثنائي", [{ letters: "جع", status: "مستعملة", isUsed: true }]);
+        addEntry(4, "جع", "ج ع", ["ج","ع"], "جعجعت الابل حركتها للاناخة", true, "ثنائي", [{ letters: "عج", status: "مستعملة", isUsed: true }]);
+        addEntry(5, "عش", "ع ش", ["ع","ش"], "مايتخذه ابطائر في رؤوس الاشجار للتفريخ", true, "ثنائي", [{ letters: "شع", status: "مستعملة", isUsed: true }]);
+        addEntry(6, "شع", "ش ع", ["ش","ع"], "شعشعت التراب اي مزجته", true, "ثنائي", [{ letters: "عش", status: "مستعملة", isUsed: true }]);
+        addEntry(7, "عص", "ع ص", ["ع","ص"], "العُصعص :اصل الذنب", true, "ثنائي", [{ letters: "صع", status: "مستعملة", isUsed: true }]);
+        addEntry(8, "صع", "ص ع", ["ص","ع"], "الصعصعة اي التفريق", true, "ثنائي", [{ letters: "عص", status: "مستعملة", isUsed: true }]);
+        addEntry(9, "عس", "ع س", ["ع","س"], "عسعست السحابة  اي دنت من الارض ليلا في ظلمة وبرق", true, "ثنائي", [{ letters: "سع", status: "مستعملة", isUsed: true }]);
+        addEntry(10, "سع", "س ع", ["س","ع"], "السعسعة: الاضطراب من الكبر", true, "ثنائي", [{ letters: "عس", status: "مستعملة", isUsed: true }]);
+        addEntry(11, "حق", "ح ق", ["ح","ق"], "الحق نقيض الباطل حق الشيئ اي وجب", true, "ثنائي", [{ letters: "قح", status: "مستعملة", isUsed: true }]);
+        addEntry(12, "قح", "ق ح", ["ق","ح"], "القح الجافي من الناس والاشياء  يقال للبطيخة التي لم تنضج انها لقُح", true, "ثنائي", [{ letters: "حق", status: "مستعملة", isUsed: true }]);
+        addEntry(13, "حش", "ح ش", ["ح","ش"], "حششت النار بالحطب احشها حشا اي ضَممت ما تفرق من الحطب الى النار", true, "ثنائي", [{ letters: "شح", status: "مستعملة", isUsed: true }]);
+        addEntry(14, "شح", "ش ح", ["ش","ح"], "يقال زَند شحاح اب لا يُوري", true, "ثنائي", [{ letters: "حش", status: "مستعملة", isUsed: true }]);
+        addEntry(15, "حص", "ح ص", ["ح","ص"], "الحصحصة: الحركة في الشيئ حتى يستقر فيه ويستمكن منه", true, "ثنائي", [{ letters: "صح", status: "مستعملة", isUsed: true }]);
+        addEntry(16, "صح", "ص ح", ["ص","ح"], "الصحة : ذهاب السقم والبراءة من كل عيب وريب", true, "ثنائي", [{ letters: "حص", status: "مستعملة", isUsed: true }]);
+        addEntry(17, "حد", "ح د", ["ح","د"], "فعلُ مابين كل شيئين حد بينهما", true, "ثنائي", [{ letters: "دح", status: "مستعملة", isUsed: true }]);
+        addEntry(18, "دح", "د ح", ["د","ح"], "شبه الدس، وهو ان تضع شيئا على الارض ثم تدقه وتدسه حتى يلزق", true, "ثنائي", [{ letters: "حد", status: "مستعملة", isUsed: true }]);
+        addEntry(19, "حذ", "ح ذ", ["ح","ذ"], "الحذ وهو القطع المستأصل", true, "ثنائي", [{ letters: "ذح", status: "مهملة", isUsed: false }]);
+        addEntry(20, "ذح", "ذ ح", ["ذ","ح"], "", false, "ثنائي", [{ letters: "حذ", status: "مستعملة", isUsed: true }]);
+        addEntry(21, "حظ", "ح ظ", ["ح","ظ"], "النصيب من الفضل والخير", true, "ثنائي", [{ letters: "ظح", status: "مهملة", isUsed: false }]);
+        addEntry(22, "ظح", "ظ ح", ["ظ","ح"], "", false, "ثنائي", [{ letters: "حظ", status: "مستعملة", isUsed: true }]);
+        addEntry(23, "خر", "خ ر", ["خ","ر"], "الخرير صوت الماء وصوت الريح وخرير العقاب حفيفها", true, "ثنائي", [{ letters: "رخ", status: "مستعملة", isUsed: true }]);
+        addEntry(24, "رخ", "ر خ", ["ر","خ"], "لين العيش. الرّخ: نبات هش. الرخ: من ادوات الشطرنج. والجميع رخرخة من كلام العجم", true, "ثنائي", [{ letters: "خر", status: "مستعملة", isUsed: true }]);
+        addEntry(25, "خم", "خ م", ["خ","م"], "اللحم المُخِمّ الذي تغيرت رائحته", true, "ثنائي", [{ letters: "مخ", status: "مستعملة", isUsed: true }]);
+        addEntry(26, "مخ", "م خ", ["م","خ"], "نقي العظم", true, "ثنائي", [{ letters: "خم", status: "مستعملة", isUsed: true }]);
+        addEntry(27, "غق", "غ ق", ["غ","ق"], "ضرب من اصوات الفأر، الغراب، الصقر", true, "ثنائي", [{ letters: "قغ", status: "مهملة", isUsed: false }]);
+        addEntry(28, "قغ", "ق غ", ["ق","غ"], "", false, "ثنائي", [{ letters: "غق", status: "مستعملة", isUsed: true }]);
+        addEntry(29, "غس", "غ س", ["غ","س"], "الغس زجر القط ، الفُس : الفشل من الرجال", true, "ثنائي", [{ letters: "سغ", status: "مستعملة", isUsed: true }]);
+        addEntry(30, "سغ", "س غ", ["س","غ"], "سغسغت شيئا في التراب اذا دحدحته فيه", true, "ثنائي", [{ letters: "غس", status: "مستعملة", isUsed: true }]);
+        addEntry(31, "غز", "غ ز", ["غ","ز"], "غزة : ارض بمشارق الشام ، واغزت البقرة فهي مُغِزٌ اذا عَسُر حملها", true, "ثنائي", [{ letters: "زغ", status: "مستعملة", isUsed: true }]);
+        addEntry(32, "زغ", "ز غ", ["ز","غ"], "زغزغت به: اي سخرت به ، زغزغ: موضع بالشام", true, "ثنائي", [{ letters: "غز", status: "مستعملة", isUsed: true }]);
+        addEntry(33, "غط", "غ ط", ["غ","ط"], "غطه في الماء يغطه غطا والنائم يغط غطيطا", true, "ثنائي", [{ letters: "طغ", status: "مهملة", isUsed: false }]);
+        addEntry(34, "طغ", "ط غ", ["ط","غ"], "", false, "ثنائي", [{ letters: "غط", status: "مستعملة", isUsed: true }]);
+        addEntry(35, "غذ", "غ ذ", ["غ","ذ"], "غذّ الجرح يغذ غذا اذا ورم والاغذاذ : الاسراع في السريع", true, "ثنائي", [{ letters: "ذغ", status: "مهملة", isUsed: false }]);
+        addEntry(36, "ذغ", "ذ غ", ["ذ","غ"], "", false, "ثنائي", [{ letters: "غذ", status: "مستعملة", isUsed: true }]);
+
+        // ---------------------- باب الثلاثي ----------------------
+        // مجموعة 1: ع.د.ق
+        const g1 = ["عدق", "قعد", "قدع", "دقع", "دعق", "دعف"];
+        const g1m = { "عدق":"حديدة لها ثلاث شعب يستخرج بها الدلو من البئر", "قعد":"قعد يقعد قعودا خلاف قام", "قدع":"كفك انسانا عن الشيء", "دقع":"التراب المنثور على وجه الأرض", "دعق":"دعقت الدواب في الأرض لشدة الوطء حتى صار فيها اثار من دعقها", "دعف":"" };
+        const g1u = [true, true, true, true, true, false];
+        for (let i=0;i<g1.length;i++) { let perms=[]; for(let j=0;j<g1.length;j++) if(i!==j) perms.push({letters:g1[j], status:g1u[j]?"مستعملة":"مهملة", isUsed:g1u[j]}); addEntry(36+i+1, g1[i], g1[i].split('').join(' '), g1[i].split(''), g1m[g1[i]], g1u[i], "ثلاثي", perms); }
+
+        // مجموعة 2: ع.ق.ر (6 كلمات: عقر، عرق، قعر، رعق، رقع، قرع)
+        const g2 = ["عقر", "عرق", "قعر", "رعق", "رقع", "قرع"];
+        const g2m = { "عقر":"جرح البعير في رقبته او في عرقوبه", "عرق":"ماء الجسد", "قعر":"قعر كل شيء: أقصاه ومبلغ أسفله", "رعق":"صوت يسمع من قنب الدابة", "رقع":"رقعت الثوب ترقيعا في مواضع", "قرع":"ذهاب شعر الرأس من الداء" };
+        for (let i=0;i<g2.length;i++) { let perms=[]; for(let j=0;j<g2.length;j++) if(i!==j) perms.push({letters:g2[j], status:"مستعملة", isUsed:true}); addEntry(42+i+1, g2[i], g2[i].split('').join(' '), g2[i].split(''), g2m[g2[i]], true, "ثلاثي", perms); }
+
+        // مجموعة 3: ع.ق.ب
+        const g3 = ["عقب", "عبق", "قعب", "قبع", "بعق", "بقع"];
+        const g3m = { "عقب":"العصب الذي تعمل منه الاوتار", "عبق":"الرجل ذو الشر والنكر", "قعب":"القدح الغليظ", "قبع":"تخلف", "بعق":"شدة الصوت", "بقع":"لون يخالف بعضه البعض" };
+        for (let i=0;i<g3.length;i++) { let perms=[]; for(let j=0;j<g3.length;j++) if(i!==j) perms.push({letters:g3[j], status:"مستعملة", isUsed:true}); addEntry(48+i+1, g3[i], g3[i].split('').join(' '), g3[i].split(''), g3m[g3[i]], true, "ثلاثي", perms); }
+
+        // مجموعة 4: ع.ق.م
+        const g4 = ["عقم", "عمق", "معق", "قعم", "قمع", "مقع"];
+        const g4m = { "عقم":"حرب شديدة،ثوب،حالة الرحم التي لا تقبل الولد", "عمق":"بئر عميقة وقد عمقت عمقا واعمقها حافرها اي بعد قعر البئر", "معق":"العبد في الأرض سفلا", "قعم":"قعم الرجل؛ اذ اصابه الطاعون فمات من ساعته", "قمع":"قمعت فلان اي ذللته", "مقع":"شدة الشرب" };
+        for (let i=0;i<g4.length;i++) { let perms=[]; for(let j=0;j<g4.length;j++) if(i!==j) perms.push({letters:g4[j], status:"مستعملة", isUsed:true}); addEntry(54+i+1, g4[i], g4[i].split('').join(' '), g4[i].split(''), g4m[g4[i]], true, "ثلاثي", perms); }
+
+        // مجموعة 5: ع.ط.م
+        const g5 = ["طعم", "طمع", "مطع", "معط", "عمط", "عطم"];
+        const g5m = { "طعم":"طعم كل شيئ وهو ذوقه", "طمع":"طمع طمعا فهو طامع واطمعه غيره", "مطع":"ضرب من الاكل بأدنى الفم", "معط":"مد الشيئ", "عمط":"", "عطم":"" };
+        const g5u = [true, true, true, true, false, false];
+        for (let i=0;i<g5.length;i++) { let perms=[]; for(let j=0;j<g5.length;j++) if(i!==j) perms.push({letters:g5[j], status:g5u[j]?"مستعملة":"مهملة", isUsed:g5u[j]}); addEntry(60+i+1, g5[i], g5[i].split('').join(' '), g5[i].split(''), g5m[g5[i]], g5u[i], "ثلاثي", perms); }
+
+        // مجموعة 6: ع.د.ر
+        const g6 = ["عدر", "عرد", "دعر", "رعد", "درع", "ردع"];
+        const g6m = { "عدر":"العَدْرُ: المطر الكثير", "عرد":"الشديد الصلب من كل شيئ", "دعر":"الدُعَرُ: ما احترق من الحطب", "رعد":"صوت السحاب", "درع":"اللبوس وهو حلق حديد", "ردع":"مقاديم الانسان اذا كانت فيه منيته" };
+        for (let i=0;i<g6.length;i++) { let perms=[]; for(let j=0;j<g6.length;j++) if(i!==j) perms.push({letters:g6[j], status:"مستعملة", isUsed:true}); addEntry(66+i+1, g6[i], g6[i].split('').join(' '), g6[i].split(''), g6m[g6[i]], true, "ثلاثي", perms); }
+
+        // مجموعة 7: ع.د.ل
+        const g7 = ["عدل", "علد", "دلع", "دعل", "لدع", "لعد"];
+        const g7m = { "عدل":"المُرْضِي من الناس قوله وحكمه", "علد":"الصلب الشديد", "دلع":"دلع لسانه اي خرج من الفم", "دعل":"", "لدع":"", "لعد":"" };
+        const g7u = [true, true, true, false, false, false];
+        for (let i=0;i<g7.length;i++) { let perms=[]; for(let j=0;j<g7.length;j++) if(i!==j) perms.push({letters:g7[j], status:g7u[j]?"مستعملة":"مهملة", isUsed:g7u[j]}); addEntry(72+i+1, g7[i], g7[i].split('').join(' '), g7[i].split(''), g7m[g7[i]], g7u[i], "ثلاثي", perms); }
+
+        // مجموعة 8: ح.ق.ل
+        const g8 = ["حقل", "قلح", "قحل", "لقح", "لحق", "حلق"];
+        const g8m = { "حقل":"الزرع اذا تشعب ورقه قبل ان يغلُظ", "قلح":"صفرة الاسنان", "قحل":"اليابس من الجلود ونحوه", "لقح":"اسم ماء الفحل", "لحق":"كل شيئ لحق شيئا او الحقته به", "حلق":"مساغ الطعام والشراب" };
+        for (let i=0;i<g8.length;i++) { let perms=[]; for(let j=0;j<g8.length;j++) if(i!==j) perms.push({letters:g8[j], status:"مستعملة", isUsed:true}); addEntry(78+i+1, g8[i], g8[i].split('').join(' '), g8[i].split(''), g8m[g8[i]], true, "ثلاثي", perms); }
+
+        // مجموعة 9: خ.ص.ر
+        const g9 = ["خصر", "خرص", "صخر", "رخص", "صرخ", "رصخ"];
+        const g9m = { "خصر":"وسط الانسان", "خرص":"الخَرصُ: الكذب", "صخر":"عظام الحجارة و صِلابها", "رخص":"الناعم من كل شيئ", "صرخ":"الصرخة وهي صيحة شديدة عند فزعة او مصيبة", "رصخ":"" };
+        const g9u = [true, true, true, true, true, false];
+        for (let i=0;i<g9.length;i++) { let perms=[]; for(let j=0;j<g9.length;j++) if(i!==j) perms.push({letters:g9[j], status:g9u[j]?"مستعملة":"مهملة", isUsed:g9u[j]}); addEntry(84+i+1, g9[i], g9[i].split('').join(' '), g9[i].split(''), g9m[g9[i]], g9u[i], "ثلاثي", perms); }
+
+        // مجموعة 10: ع.ج.د
+        const g10 = ["عجد", "جعد", "جدع", "دعج", "دج ع", "عدج"];
+        const g10m = { "عجد":"العُجد : الزبيب", "جعد":"رجلٌ جعْد الشعر", "جدع":"الجدع قطع الانف والاذن والشفة", "دعج":"الدّعجُ شدة سواد العين وشدة بياضه", "دج ع":"", "عدج":"" };
+        const g10u = [true, true, true, true, false, false];
+        for (let i=0;i<g10.length;i++) { let perms=[]; for(let j=0;j<g10.length;j++) if(i!==j) perms.push({letters:g10[j], status:g10u[j]?"مستعملة":"مهملة", isUsed:g10u[j]}); addEntry(90+i+1, g10[i], g10[i].split('').join(' '), g10[i].split(''), g10m[g10[i]], g10u[i], "ثلاثي", perms); }
+
+        // مجموعة 11: ع.ج.ل
+        const g11 = ["عجل", "علج", "جعل", "لجع", "لج ع", "ل ج ع"];
+        const g11m = { "عجل":"العجلة والريّا عجّل يافلان اي عجل امرك", "علج":"العلج حمار الوحش لاستعلاج خلقه", "جعل":"صنع", "لجع":"", "لج ع":"", "ل ج ع":"" };
+        const g11u = [true, true, true, true, false, false];
+        for (let i=0;i<g11.length;i++) { let perms=[]; for(let j=0;j<g11.length;j++) if(i!==j) perms.push({letters:g11[j], status:g11u[j]?"مستعملة":"مهملة", isUsed:g11u[j]}); addEntry(96+i+1, g11[i], g11[i].split('').join(' '), g11[i].split(''), g11m[g11[i]], g11u[i], "ثلاثي", perms); }
+
+        // مجموعة 12: ع.ج.ن
+        const g12 = ["عجن", "عنج", "جعن", "نعج", "نجع", "جنع"];
+        const g12m = { "عجن":"عجن يعجن عجنا فهو عجين وناقة عجناء كثيرة لحم الضّرع مع قلة اللبن وكذا الشاه والبقرة", "عنج":"العِناج: خيط او سير يُشّد في اسفل الدلو ثم يُشد في عروته فإذا انقطع الحبل امسك العناج الدلو من ان تقع في البئر", "جعن":"جعونة اسم رجل من البادية", "نعج":"نَعِجَ اللون اذا ابيض ونُعوجا ايضا وهو البياض الخالص", "نجع":"النُّجعة طلب الكلا والخير", "جنع":"" };
+        const g12u = [true, true, true, true, true, false];
+        for (let i=0;i<g12.length;i++) { let perms=[]; for(let j=0;j<g12.length;j++) if(i!==j) perms.push({letters:g12[j], status:g12u[j]?"مستعملة":"مهملة", isUsed:g12u[j]}); addEntry(102+i+1, g12[i], g12[i].split('').join(' '), g12[i].split(''), g12m[g12[i]], g12u[i], "ثلاثي", perms); }
+
+        // مجموعة 13: ع.ج.ف
+        const g13 = ["عجف", "عفج", "جعف", "فجع", "ف عج", "جفغ"];
+        const g13m = { "عجف":"عجفت نفسي عن الطعام اي حبست وانا اشتهيه ولا يكون العجف الا الجوع", "عفج":"العفجة من امعاء البطن وهي لكل مالا يجتر كالممرغة من الشاه وهي كالكيس من الانسان", "جعف":"الجعف شدة الصرع", "فجع":"ان يُفجع الانسان بشيئ يكرم عليه فيعدمه", "ف عج":"", "جفغ":"" };
+        const g13u = [true, true, true, true, false, false];
+        for (let i=0;i<g13.length;i++) { let perms=[]; for(let j=0;j<g13.length;j++) if(i!==j) perms.push({letters:g13[j], status:g13u[j]?"مستعملة":"مهملة", isUsed:g13u[j]}); addEntry(108+i+1, g13[i], g13[i].split('').join(' '), g13[i].split(''), g13m[g13[i]], g13u[i], "ثلاثي", perms); }
+
+        // مجموعة 14: ع.ج.ب
+        const g14 = ["عجب", "جعب", "بعج", "عبج", "جبع", "بج ع"];
+        const g14m = { "عجب":"عَجِبَ عجبا وامرٌ عجيب ،عَجَبٌ عجاب قال الخليل: بينهما فرق اما العجيب فالعجب واما العُجاب فالذي جاوز حد العجب مثل:الطويل والطوال", "جعب":"جَعَبْتُ جعبة اي اتخذت كنانة", "بعج":"بعج فلان بطن فلان بالسكين اي شقه وخضخضه فيه", "عبج":"", "جبع":"", "بج ع":"" };
+        const g14u = [true, true, true, false, false, false];
+        for (let i=0;i<g14.length;i++) { let perms=[]; for(let j=0;j<g14.length;j++) if(i!==j) perms.push({letters:g14[j], status:g14u[j]?"مستعملة":"مهملة", isUsed:g14u[j]}); addEntry(114+i+1, g14[i], g14[i].split('').join(' '), g14[i].split(''), g14m[g14[i]], g14u[i], "ثلاثي", perms); }
+
+        // مجموعة 15: ع.ض.ل
+        const g15 = ["عضل", "علض", "ضلع", "ضعل", "لضع", "لعض"];
+        const g15m = { "عضل":"العضلة : موضع اللحم من الساقين والعضدين", "علض":"العِلّوض : ابن آوى بلغة حمير، ولم يعرفه الضرير وغيره", "ضلع":"الضلع والضّلع يقال ناولته ضلعا من البطيخ تشبيها بالضلع", "ضعل":"", "لضع":"", "لعض":"" };
+        const g15u = [true, true, true, false, false, false];
+        for (let i=0;i<g15.length;i++) { let perms=[]; for(let j=0;j<g15.length;j++) if(i!==j) perms.push({letters:g15[j], status:g15u[j]?"مستعملة":"مهملة", isUsed:g15u[j]}); addEntry(120+i+1, g15[i], g15[i].split('').join(' '), g15[i].split(''), g15m[g15[i]], g15u[i], "ثلاثي", perms); }
+
+        // مجموعة 16: ع.ض.ف
+        const g16 = ["ضعف", "ضفع", "فضع", "ع ض ف", "ع ف ض", "ف ض ع"];
+        const g16m = { "ضعف":"ضَعُف،يضعف ضَعفا و ضُعفا والضعف: خلاف القوة", "ضفع":"ضَفَعَ الانسان يضفع ضفعًا اذا جعس وفضع .... لغتان مثل جذب وجبذ مقلوبًا", "فضع":"", "ع ض ف":"", "ع ف ض":"", "ف ض ع":"" };
+        const g16u = [true, true, true, false, false, false];
+        for (let i=0;i<g16.length;i++) { let perms=[]; for(let j=0;j<g16.length;j++) if(i!==j) perms.push({letters:g16[j], status:g16u[j]?"مستعملة":"مهملة", isUsed:g16u[j]}); addEntry(126+i+1, g16[i], g16[i].split('').join(' '), g16[i].split(''), g16m[g16[i]], g16u[i], "ثلاثي", perms); }
+
+        // مجموعة 17: هـ.ق.م
+        const g17 = ["هقم", "همق", "قهم", "مهق", "قمه", "مقه"];
+        const g17m = { "هقم":"رجلٌ هقم: شديد الجوع كثير الاكل", "همق":"واحدتها همقاقة بوزن فُعلالة ولا اظنه الا دخيلا من كلام العجم او كلام بَلعَم وهي حبة تشبه القطن في جُماحة مثل الخشخاش الا انها صلبة ذات شعب يُقلى حَبُّهُ ويؤكل ويزيد في الجماع", "قهم":"القَهْقَم : الفحل الضخم", "مهق":"المهق والمقه بياض في زرقة ويقال المقه اشدهما بياضا", "قمه":"قمه الشيئ في الماء يقمهه اذا قمسه فارتفع رأسه احيانا وانغمر احيانا فهو قامِه", "مقه":"" };
+        for (let i=0;i<g17.length;i++) { let perms=[]; for(let j=0;j<g17.length;j++) if(i!==j) perms.push({letters:g17[j], status:"مستعملة", isUsed:true}); addEntry(132+i+1, g17[i], g17[i].split('').join(' '), g17[i].split(''), g17m[g17[i]], true, "ثلاثي", perms); }
+
+        // مجموعة 18: هـ.ت.م
+        const g18 = ["هتم", "تهم", "تمه", "مته", "همت", "م ه ت"];
+        const g18m = { "هتم":"الهتم كسر الثنية او الثنايا من الاصل والنعت اهتم وهتماء", "تهم":"النائم", "تمه":"تمه اللبن يتمه تمها فهو تمه اذا تغير", "مته":"المته و التمته الاخذ في البطالة والغَواية", "همت":"", "م ه ت":"" };
+        const g18u = [true, true, true, true, false, false];
+        for (let i=0;i<g18.length;i++) { let perms=[]; for(let j=0;j<g18.length;j++) if(i!==j) perms.push({letters:g18[j], status:g18u[j]?"مستعملة":"مهملة", isUsed:g18u[j]}); addEntry(138+i+1, g18[i], g18[i].split('').join(' '), g18[i].split(''), g18m[g18[i]], g18u[i], "ثلاثي", perms); }
+
+        // مجموعة 19: هـ.ر.ف
+        const g19 = ["هرف", "رهف", "فهر", "رفه", "فره", "هفر"];
+        const g19m = { "هرف":"الهرف : شبيه الهذيان من الاعجاب بشيئ", "رهف":"اللطيف الدقيق", "فهر":"الفِهر الحجر قدر ما يكسر به جوز او يدق بيه شيئ", "رفه":"رَفُه عيشه رفاهة فهو رفيه العيش وهو ارغد الخِصب", "فره":"الفارهة: القينة ومايتبعها من المواهب", "هفر":"" };
+        const g19u = [true, true, true, true, true, false];
+        for (let i=0;i<g19.length;i++) { let perms=[]; for(let j=0;j<g19.length;j++) if(i!==j) perms.push({letters:g19[j], status:g19u[j]?"مستعملة":"مهملة", isUsed:g19u[j]}); addEntry(144+i+1, g19[i], g19[i].split('').join(' '), g19[i].split(''), g19m[g19[i]], g19u[i], "ثلاثي", perms); }
+
+        // مجموعة 20: هـ.ر.ب
+        const g20 = ["هرب", "هبر", "رهب", "بهر", "بره", "ربه"];
+        const g20m = { "هرب":"الفرار", "هبر":"القطع في اللحم", "رهب":"رهبت الشيئ اي خفته", "بهر":"بهرته عالجته حتى انبهر", "بره":"البرهان: البيان والحجة", "ربه":"" };
+        const g20u = [true, true, true, true, true, false];
+        for (let i=0;i<g20.length;i++) { let perms=[]; for(let j=0;j<g20.length;j++) if(i!==j) perms.push({letters:g20[j], status:g20u[j]?"مستعملة":"مهملة", isUsed:g20u[j]}); addEntry(150+i+1, g20[i], g20[i].split('').join(' '), g20[i].split(''), g20m[g20[i]], g20u[i], "ثلاثي", perms); }
+
+        // ---------------------- باب الرباعي ----------------------
+        addEntry(156, "خشرم", "خ ش ر م", ["خ","ش","ر","م"], "", false, "رباعي", [{ letters: "خرشم", status: "مستعملة", isUsed: true }, { letters: "خرمش", status: "مستعملة", isUsed: true }, { letters: "شمرخ", status: "مستعملة", isUsed: true }, { letters: "شمخر", status: "مستعملة", isUsed: true }]);
+        addEntry(157, "خرشم", "خ ر ش م", ["خ","ر","ش","م"], "", true, "رباعي", [{ letters: "خشرم", status: "مستعملة", isUsed: false }, { letters: "خرمش", status: "مستعملة", isUsed: true }, { letters: "شمرخ", status: "مستعملة", isUsed: true }, { letters: "شمخر", status: "مستعملة", isUsed: true }]);
+        addEntry(158, "خرمش", "خ ر م ش", ["خ","ر","م","ش"], "", true, "رباعي", [{ letters: "خشرم", status: "مستعملة", isUsed: false }, { letters: "خرشم", status: "مستعملة", isUsed: true }, { letters: "شمرخ", status: "مستعملة", isUsed: true }, { letters: "شمخر", status: "مستعملة", isUsed: true }]);
+        addEntry(159, "شمرخ", "ش م ر خ", ["ش","م","ر","خ"], "", true, "رباعي", [{ letters: "خشرم", status: "مستعملة", isUsed: false }, { letters: "خرشم", status: "مستعملة", isUsed: true }, { letters: "خرمش", status: "مستعملة", isUsed: true }, { letters: "شمخر", status: "مستعملة", isUsed: true }]);
+        addEntry(160, "شمخر", "ش م خ ر", ["ش","م","خ","ر"], "", true, "رباعي", [{ letters: "خشرم", status: "مستعملة", isUsed: false }, { letters: "خرشم", status: "مستعملة", isUsed: true }, { letters: "خرمش", status: "مستعملة", isUsed: true }, { letters: "شمرخ", status: "مستعملة", isUsed: true }]);
+        addEntry(161, "لخجم", "ل خ ج م", ["ل","خ","ج","م"], "", true, "رباعي", [{ letters: "خلجم", status: "مستعملة", isUsed: true }, { letters: "جلخم", status: "مستعملة", isUsed: true }]);
+        addEntry(162, "خلجم", "خ ل ج م", ["خ","ل","ج","م"], "", true, "رباعي", [{ letters: "لخجم", status: "مستعملة", isUsed: true }, { letters: "جلخم", status: "مستعملة", isUsed: true }]);
+        addEntry(163, "جلخم", "ج ل خ م", ["ج","ل","خ","م"], "", true, "رباعي", [{ letters: "لخجم", status: "مستعملة", isUsed: true }, { letters: "خلجم", status: "مستعملة", isUsed: true }]);
+        addEntry(164, "خردل", "خ ر د ل", ["خ","ر","د","ل"], "الخردل: نبات معروف (حسب المصدر، لا يوجد شرح مفصل في النص الأصلي)", true, "رباعي", [{ letters: "ردخل", status: "مستعملة", isUsed: true }]);
+        addEntry(165, "ردخل", "ر د خ ل", ["ر","د","خ","ل"], "", true, "رباعي", [{ letters: "خردل", status: "مستعملة", isUsed: true }]);
+        addEntry(166, "فطحل", "ف ط ح ل", ["ف","ط","ح","ل"], "", true, "رباعي", [{ letters: "طفلح", status: "مستعملة", isUsed: true }]);
+        addEntry(167, "طفلح", "ط ف ل ح", ["ط","ف","ل","ح"], "", true, "رباعي", [{ letters: "فطحل", status: "مستعملة", isUsed: true }]);
+        addEntry(168, "صقعر", "ص ق ع ر", ["ص","ق","ع","ر"], "", true, "رباعي", [{ letters: "عرقص", status: "مستعملة", isUsed: true }, { letters: "قصعر", status: "مستعملة", isUsed: true }]);
+        addEntry(169, "عرقص", "ع ر ق ص", ["ع","ر","ق","ص"], "", true, "رباعي", [{ letters: "صقعر", status: "مستعملة", isUsed: true }, { letters: "قصعر", status: "مستعملة", isUsed: true }]);
+        addEntry(170, "قصعر", "ق ص ع ر", ["ق","ص","ع","ر"], "", true, "رباعي", [{ letters: "صقعر", status: "مستعملة", isUsed: true }, { letters: "عرقص", status: "مستعملة", isUsed: true }]);
+
+        // ---------------------- ملحق الأبواب (مع إضافة التصنيف في المعنى) ----------------------
+        addEntry(171, "قحو", "ق ح و", ["ق","ح","و"], "القحو تأسيس الاقحوان وهو من نبات الربيع | التصنيف: ثلاثي معتل", true, "ملحق", []);
+        addEntry(172, "حيق", "ح ي ق", ["ح","ي","ق"], "الحَيْق هو ما حاق بالانسان من منكر او سوء يعمله فينزل به ذلك | التصنيف: ثلاثي معتل", true, "ملحق", []);
+        addEntry(173, "حصى", "ح ص ى", ["ح","ص","ى"], "صغار الحجارة | التصنيف: ثلاثي معتل", true, "ملحق", []);
+        addEntry(174, "صحو", "ص ح و", ["ص","ح","و"], "ذهاب الغيم .تقول السماء صحوٌ | التصنيف: ثلاثي معتل", true, "ملحق", []);
+        addEntry(175, "حلو", "ح ل و", ["ح","ل","و"], "كل مافي طعمه حلاوة | التصنيف: ثلاثي معتل", true, "ملحق", []);
+        addEntry(176, "خوخ", "خ و خ", ["خ","و","خ"], "مفترق بين بيتين او دارين لم يُنصب عليهما باب | التصنيف: لفيف", true, "ملحق", []);
+        addEntry(177, "قوي", "ق و ي", ["ق","و","ي"], "رجل شديد القوى ، اي شديد اشر الخلق والبنية | التصنيف: لفيف", true, "ملحق", []);
+        addEntry(178, "قوقى", "ق و ق ى", ["ق","و","ق","ى"], "قوقت الدجاجة قوقاة خفيفة وهي صوتها | التصنيف: لفيف", true, "ملحق", []);
+        addEntry(179, "اوق", "ا و ق", ["ا","و","ق"], "الاوقة: هبطة يجتمع فيها الماء | التصنيف: لفيف", true, "ملحق", []);
+        addEntry(180, "اجّ", "ا ج ج", ["ا","ج","ج"], "اجّت النّار تؤجّ اجيجا | التصنيف: لفيف", true, "ملحق", []);
+
+        // ==================== باقي الكود الأصلي (مع تعديل عرض التقليبات ليصبح 6) ====================
+        let searchMode = 'word';
+        let searchTimeout = null;
+        let favorites = JSON.parse(localStorage.getItem('almoein_favorites')) || [];
+        let searchHistory = JSON.parse(localStorage.getItem('almoein_history')) || [];
+
+        function normalizeArabic(text) {
+            if (!text) return '';
+            return text.replace(/[\u0617-\u061A\u064B-\u0652]/g, '')
+                       .replace(/[أإآ]/g, 'ا')
+                       .replace(/ة/g, 'ه')
+                       .replace(/ى/g, 'ي')
+                       .replace(/ؤ/g, 'و')
+                       .replace(/ئ/g, 'ي')
+                       .replace(/[^ء-ي\s]/g, '')
+                       .trim();
+        }
+
+        function extractRootLetters(word) {
+            let cleaned = normalizeArabic(word);
+            let letters = [];
+            let seen = new Set();
+            for (let ch of cleaned) {
+                if (/[ء-ي]/.test(ch) && !seen.has(ch)) {
+                    seen.add(ch);
+                    letters.push(ch);
+                }
+            }
+            return letters;
+        }
+
+        function classifyWord(rootLetters) {
+            const len = rootLetters.length;
+            if (len === 2) return 'ثنائي';
+            if (len === 3) return 'ثلاثي';
+            if (len === 4) return 'رباعي';
+            if (len === 5) return 'خماسي';
+            return 'ملحق';
+        }
+
+        function validateWord(entry) {
+            let errors = [];
+            if (!entry.word || !entry.root) errors.push('بيانات ناقصة');
+            let normRootLetters = entry.rootLetters.map(l => normalizeArabic(l));
+            let expectedChapter = classifyWord(normRootLetters);
+            if (entry.chapter !== expectedChapter && !(entry.chapter === 'ملحق' && (expectedChapter === 'ثلاثي' || expectedChapter === 'رباعي'))) {
+                errors.push(`تصنيف خاطئ: ${entry.chapter} يجب أن يكون ${expectedChapter}`);
+            }
+            return { valid: errors.length === 0, errors };
+        }
+
+        function saveFavorites() { localStorage.setItem('almoein_favorites', JSON.stringify(favorites)); }
+        function saveHistory() { localStorage.setItem('almoein_history', JSON.stringify(searchHistory)); }
+
+        function handleSuggestions() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                const query = document.getElementById('searchInput').value.trim();
+                const dropdown = document.getElementById('suggestionsDropdown');
+                if (query.length < 1) { dropdown.classList.remove('show'); return; }
+                let matches = [];
+                const normQuery = normalizeArabic(query);
+                if (searchMode === 'word') {
+                    matches = dictionaryDB.filter(e => normalizeArabic(e.word).includes(normQuery));
+                } else if (searchMode === 'root') {
+                    const clean = normQuery.replace(/\s+/g, '');
+                    matches = dictionaryDB.filter(e => normalizeArabic(e.root).replace(/\s+/g, '').includes(clean));
+                } else {
+                    const clean = normQuery.replace(/\s+/g, '');
+                    matches = dictionaryDB.filter(e => normalizeArabic(e.rootLetters.join('')).includes(clean));
+                }
+                matches = matches.slice(0, 8);
+                if (matches.length === 0) { dropdown.classList.remove('show'); return; }
+                dropdown.innerHTML = matches.map(m => `<div class="suggestion-item" onclick="window.quickSearch('${m.word.replace(/'/g, "\\'")}')"><span class="sugg-word">${m.word}</span><span class="sugg-root">${m.root}</span><span class="sugg-meaning">${m.meaning.substring(0, 60)}...</span></div>`).join('');
+                dropdown.classList.add('show');
+            }, 200);
+        }
+
+        window.quickSearch = function(word) {
+            document.getElementById('searchInput').value = word;
+            document.getElementById('suggestionsDropdown').classList.remove('show');
+            performSearch();
+        };
+
+        function forceScrollToResults(retries = 10) {
+            const section = document.getElementById('wordResultSection');
+            if (!section) return false;
+            const navbar = document.getElementById('navbar');
+            const navbarHeight = navbar ? navbar.offsetHeight : 0;
+            const rect = section.getBoundingClientRect();
+            if (rect.top === 0 && rect.bottom === 0 && retries > 0) {
+                setTimeout(() => forceScrollToResults(retries - 1), 50);
+                return false;
+            }
+            const elementPosition = rect.top + window.scrollY;
+            const offsetPosition = elementPosition - navbarHeight - 20;
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+            return true;
+        }
+
+        async function performSearch() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (!query) {
+                await Swal.fire({ title: 'تنبيه', text: 'الرجاء إدخال نص للبحث.', icon: 'warning', confirmButtonText: 'حسناً', confirmButtonColor: '#d4af37', background: '#fffef8', borderRadius: '1.5rem', customClass: { confirmButton: 'rounded-full' } });
+                return;
+            }
+            let results = [];
+            const normQuery = normalizeArabic(query);
+            if (searchMode === 'word') {
+                results = dictionaryDB.filter(e => normalizeArabic(e.word).includes(normQuery));
+                results.sort((a,b) => { if (a.word === query && b.word !== query) return -1; if (b.word === query && a.word !== query) return 1; if (a.word.startsWith(query) && !b.word.startsWith(query)) return -1; if (b.word.startsWith(query) && !a.word.startsWith(query)) return 1; return 0; });
+            } else if (searchMode === 'root') {
+                const clean = normQuery.replace(/\s+/g, '');
+                results = dictionaryDB.filter(e => normalizeArabic(e.root).replace(/\s+/g, '').includes(clean));
+            } else {
+                const clean = normQuery.replace(/\s+/g, '');
+                results = dictionaryDB.filter(e => normalizeArabic(e.rootLetters.join('')).includes(clean));
+            }
+
+            if (results.length === 0) {
+                await Swal.fire({ title: 'لم يتم العثور', html: `❌ لم يتم العثور على نتائج لـ <strong>"${query}"</strong> في وضع البحث بالـ ${searchMode === 'word' ? 'كلمة' : (searchMode === 'root' ? 'جذر' : 'حروف')}.`, icon: 'error', confirmButtonColor: '#d4af37', borderRadius: '1.5rem', customClass: { confirmButton: 'rounded-full' } });
+                return;
+            }
+            renderResults(results, query);
+        }
+
+        function renderResults(results, queryTitle) {
+            const container = document.getElementById('resultsListContainer');
+            const section = document.getElementById('wordResultSection');
+            const titleSpan = document.getElementById('resultsQueryTitle');
+            const noResultsDiv = document.getElementById('noResultsMessage');
+            if (!container || !section) return;
+            if (!results || results.length === 0) { 
+                container.innerHTML = ''; 
+                noResultsDiv.style.display = 'block'; 
+                titleSpan.innerText = queryTitle || '---'; 
+                section.style.display = 'block'; 
+                forceScrollToResults();
+                return; 
+            }
+            noResultsDiv.style.display = 'none';
+            titleSpan.innerText = queryTitle || ` (${results.length} نتيجة)`;
+            container.innerHTML = results.map(entry => {
+                const totalPermsCard = entry.permutations.length + 1; // +1 للكلمة نفسها
+                let cleanMeaning = entry.meaning.replace(/\|\s*التصنيف:\s*.+$/, '').trim();
+                return `<div class="result-word-card" data-word-id="${entry.id}"><div class="card-word-main"><span class="card-word">${entry.word}</span><span class="card-root">${entry.root}</span></div><div class="card-meaning-preview">${cleanMeaning.substring(0, 100)}...</div><div class="card-meta"><span class="${entry.isUsed ? 'badge-used' : 'badge-unused'}">${entry.isUsed ? '✓ مستعملة' : '✗ مهملة'}</span><span class="badge-chapter">${entry.chapter}</span><span style="color:#aaa;">${entry.derivations.length} اشتقاق | ${totalPermsCard} تقليب</span></div></div>`;
+            }).join('');
+            document.querySelectorAll('.result-word-card').forEach(card => { card.addEventListener('click', () => { const id = parseInt(card.getAttribute('data-word-id')); const wordObj = dictionaryDB.find(w => w.id === id); if (wordObj) showWordDetailModal(wordObj); }); });
+            section.style.display = 'block';
+            requestAnimationFrame(() => {
+                setTimeout(() => forceScrollToResults(), 20);
+            });
+        }
+
+        function showWordDetailModal(wordObj) {
+            if (!wordObj) return;
+            addToHistory(wordObj.id);
+            const modalOverlay = document.getElementById('wordModalOverlay');
+            const modalContent = document.getElementById('modalContent');
+            if (!modalOverlay || !modalContent) return;
+            // إضافة الكلمة نفسها كأول تقليب (لتصبح المجموع 6)
+            const selfPerm = `<span class="perm-item perm-used perm-self" title="الكلمة الحالية">${wordObj.word} <small>(الكلمة الحالية)</small></span>`;
+            const permHTML = wordObj.permutations.length > 0
+                ? selfPerm + wordObj.permutations.map(p => `<span class="perm-item ${p.isUsed ? 'perm-used' : 'perm-unused'}" title="${p.status}">${p.letters} <small>(${p.status})</small></span>`).join('')
+                : selfPerm;
+            const totalPerms = wordObj.permutations.length + 1;
+            const derivHTML = wordObj.derivations.map(d => `<span class="deriv-tag">${d}</span>`).join('');
+            let meaningDisplay = wordObj.meaning;
+            let classificationTag = '';
+            if (wordObj.chapter === 'ملحق') {
+                const classMatch = wordObj.meaning.match(/\|\s*التصنيف:\s*(.+)$/);
+                if (classMatch) {
+                    meaningDisplay = wordObj.meaning.replace(/\|\s*التصنيف:\s*.+$/, '').trim();
+                    classificationTag = `<div class="info-item"><span>التصنيف</span><span style="color:#8b6914">${classMatch[1]}</span></div>`;
+                }
+            }
+            modalContent.innerHTML = `<div class="modal-word-title">${wordObj.word}</div><div class="modal-root-highlight"><span>الجذر: ${wordObj.root}</span></div><div class="detail-section"><h4>📖 المعنى</h4><p class="meaning-text">${meaningDisplay}</p></div><div class="detail-section"><h4>📌 معلومات الكلمة</h4><div class="info-grid"><div class="info-item"><span>الباب</span><span>${wordObj.chapter}</span></div>${classificationTag}<div class="info-item"><span>الحالة</span><span style="color:${wordObj.isUsed ? '#2e6b47' : '#b33'}">${wordObj.isUsed ? 'مستعملة' : 'مهملة'}</span></div><div class="info-item"><span>الاشتقاقات</span><span>${wordObj.derivations.length}</span></div><div class="info-item"><span>التقليبات</span><span>${totalPerms}</span></div></div></div><div class="detail-section"><h4>🌿 الاشتقاقات</h4><div class="derivations-list">${derivHTML || 'لا توجد اشتقاقات مسجلة'}</div></div><div class="detail-section"><h4>🔄 تقليبات الحروف</h4><div class="permutations-grid">${permHTML}</div></div><button class="fav-modal-btn" id="modalFavBtn">${isFavorite(wordObj.id) ? '❤️ أُضيفت إلى المفضلة' : '🤍 حفظ إلى المفضلة'}</button>`;
+            modalOverlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            const favBtn = document.getElementById('modalFavBtn');
+            if (favBtn) favBtn.onclick = () => { if (isFavorite(wordObj.id)) { removeFromFavorites(wordObj.id); favBtn.innerHTML = '🤍 حفظ إلى المفضلة'; } else { addToFavorites(wordObj.id); favBtn.innerHTML = '❤️ أُضيفت إلى المفضلة'; } renderFavoritesList(); };
+        }
+
+        function closeModal() { const modalOverlay = document.getElementById('wordModalOverlay'); if (modalOverlay) { modalOverlay.style.display = 'none'; document.body.style.overflow = ''; } }
+
+        function addToFavorites(wordId) { const wordObj = dictionaryDB.find(w => w.id === wordId); if (!wordObj || favorites.some(fav => fav.id === wordId)) return; favorites.push({ id: wordId, word: wordObj.word }); saveFavorites(); renderFavoritesList(); }
+        function removeFromFavorites(wordId) { favorites = favorites.filter(fav => fav.id !== wordId); saveFavorites(); renderFavoritesList(); }
+        function isFavorite(wordId) { return favorites.some(fav => fav.id === wordId); }
+        function addToHistory(wordId) { const wordObj = dictionaryDB.find(w => w.id === wordId); if (!wordObj) return; searchHistory = searchHistory.filter(h => h.id !== wordId); searchHistory.unshift({ id: wordId, word: wordObj.word }); if (searchHistory.length > 10) searchHistory.pop(); saveHistory(); renderHistoryList(); }
+
+        function renderFavoritesList() {
+            const container = document.getElementById('favoritesList'); if (!container) return;
+            if (favorites.length === 0) { container.innerHTML = '<li class="empty-msg">لا توجد كلمات مفضلة بعد. أضف كلمات من نتائج البحث.</li>'; return; }
+            container.innerHTML = favorites.map(fav => `<li><span class="fav-word" data-word-id="${fav.id}">${fav.word}</span><button class="remove-fav" data-word-id="${fav.id}"><i class="fa-regular fa-trash-can"></i></button></li>`).join('');
+            document.querySelectorAll('.fav-word').forEach(el => { el.addEventListener('click', () => { const id = parseInt(el.dataset.wordId); const word = dictionaryDB.find(w => w.id === id); if (word) showWordDetailModal(word); }); });
+            document.querySelectorAll('.remove-fav').forEach(btn => { btn.addEventListener('click', (e) => { e.stopPropagation(); const id = parseInt(btn.dataset.wordId); removeFromFavorites(id); }); });
+        }
+
+        function renderHistoryList() {
+            const container = document.getElementById('historyList'); if (!container) return;
+            if (searchHistory.length === 0) { container.innerHTML = '<li class="empty-msg">لا يوجد سجل بحث بعد.</li>'; return; }
+            container.innerHTML = searchHistory.map(hist => `<li><span class="history-word" data-word-id="${hist.id}">${hist.word}</span><button class="remove-history" data-word-id="${hist.id}"><i class="fa-regular fa-trash-can"></i></button></li>`).join('');
+            document.querySelectorAll('.history-word').forEach(el => { el.addEventListener('click', () => { const id = parseInt(el.dataset.wordId); const word = dictionaryDB.find(w => w.id === id); if (word) showWordDetailModal(word); }); });
+            document.querySelectorAll('.remove-history').forEach(btn => { btn.addEventListener('click', (e) => { e.stopPropagation(); const id = parseInt(btn.dataset.wordId); searchHistory = searchHistory.filter(h => h.id !== id); saveHistory(); renderHistoryList(); }); });
+        }
+
+        function initAbwab() {
+            document.querySelectorAll('.abwab-btn').forEach(btn => {
+                btn.addEventListener('click', async (e) => {
+                    e.preventDefault();
+                    const bab = btn.getAttribute('data-bab');
+                    let filtered = dictionaryDB.filter(entry => entry.chapter === bab);
+                    if (filtered.length === 0) {
+                        await Swal.fire({ title: '📭 لا توجد كلمات', text: `باب "${bab}" لا يحتوي على أي كلمات في قاعدة البيانات الحالية.`, icon: 'info', confirmButtonColor: '#d4af37', borderRadius: '1.5rem', customClass: { confirmButton: 'rounded-full' } });
+                        return;
+                    }
+                    renderResults(filtered, `باب ${bab}`);
+                });
+            });
+        }
+
+        function initMakharij() {
+            document.querySelectorAll('.letter-card').forEach(card => {
+                card.addEventListener('click', async (e) => {
+                    e.stopPropagation();
+                    let letter = card.getAttribute('data-pronounce') || card.getAttribute('data-letter') || card.innerText.trim();
+                    let makhraj = card.getAttribute('data-makhraj') || 'سيتم إضافة التفاصيل لاحقاً.';
+                    if (window.speechSynthesis) {
+                        window.speechSynthesis.cancel();
+                        const utterance = new SpeechSynthesisUtterance(letter);
+                        utterance.lang = 'ar-SA';
+                        utterance.rate = 0.9;
+                        window.speechSynthesis.speak(utterance);
+                    } else {
+                        await Swal.fire({ title: '⚠️ غير مدعوم', text: 'متصفحك لا يدعم خاصية النطق الصوتي.', icon: 'warning', confirmButtonColor: '#d4af37', timer: 1500 });
+                    }
+                    await Swal.fire({ title: `🔊 حرف: ${letter}`, text: `📍 المخرج: ${makhraj}`, icon: 'info', confirmButtonText: 'سمعت', confirmButtonColor: '#d4af37', background: '#fefaf5', borderRadius: '1.5rem', customClass: { confirmButton: 'rounded-full' }, timer: 2500, showConfirmButton: true });
+                });
+            });
+        }
+
+        function initSmoothNavLinks() {
+            const allLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
+            allLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        let targetId = href.substring(1);
+                        if (targetId === 'home') {
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                            return;
+                        }
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            const navbar = document.getElementById('navbar');
+                            const navbarHeight = navbar ? navbar.offsetHeight : 0;
+                            const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                            const offsetPosition = elementPosition - navbarHeight - 20;
+                            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                        }
+                    }
+                });
+            });
+        }
+
+        function bindEvents() {
+            document.querySelectorAll('.search-tab').forEach(tab => { tab.addEventListener('click', (e) => { searchMode = tab.getAttribute('data-mode'); document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active')); tab.classList.add('active'); const input = document.getElementById('searchInput'); if (searchMode === 'word') input.placeholder = 'اكتب الكلمة هنا... مثال: كتب، علم، خرج'; else if (searchMode === 'root') input.placeholder = 'اكتب الجذر هنا... مثال: ك ت ب، ع ل م'; else input.placeholder = 'اكتب الحروف هنا... مثال: ك ت، ب ك'; input.value = ''; document.getElementById('suggestionsDropdown').classList.remove('show'); }); });
+            document.getElementById('searchBtn').addEventListener('click', performSearch);
+            document.getElementById('searchInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') performSearch(); });
+            document.getElementById('searchInput').addEventListener('input', handleSuggestions);
+            document.addEventListener('click', (e) => { const wrapper = document.getElementById('searchWrapper'); if (wrapper && !wrapper.contains(e.target)) document.getElementById('suggestionsDropdown').classList.remove('show'); });
+            document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+            window.addEventListener('click', (e) => { if (e.target === document.getElementById('wordModalOverlay')) closeModal(); });
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+            document.getElementById('clearFavoritesBtn')?.addEventListener('click', () => { favorites = []; saveFavorites(); renderFavoritesList(); });
+            document.getElementById('clearHistoryBtn')?.addEventListener('click', () => { searchHistory = []; saveHistory(); renderHistoryList(); });
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => { if (window.scrollY > 80) navbar.classList.add('navbar-scrolled'); else navbar.classList.remove('navbar-scrolled'); });
+            const mobileBtn = document.getElementById('mobileMenuBtn'); const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileBtn && mobileMenu) { mobileBtn.addEventListener('click', () => { mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex'; }); mobileMenu.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { mobileMenu.style.display = 'none'; }); }); }
+            const backBtn = document.getElementById('backToTopBtn');
+            window.addEventListener('scroll', () => { if (window.scrollY > 400) backBtn.classList.add('show'); else backBtn.classList.remove('show'); });
+            backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            bindEvents();
+            initAbwab();
+            initMakharij();
+            renderFavoritesList();
+            renderHistoryList();
+            initSmoothNavLinks();
+            console.log(`✅ معجم العين جاهز - ${dictionaryDB.length} كلمة في قاعدة البيانات (نسخة نهائية بدون تكرار، 6 تقليبات لكل كلمة ثلاثية)`);
+        });
+    </script>
+    <!-- زر تثبيت التطبيق PWA -->
+    <button id="installPwaBtn" style="display: none; position: fixed; bottom: 80px; left: 20px; z-index: 1000; background: #d4af37; color: #1E4D2B; padding: 10px 20px; border-radius: 20px; border: none; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.3); font-family: 'Amiri', serif;">
+        <i class="fa-solid fa-download"></i> تثبيت التطبيق
+    </button>
+    <script>
+        // PWA Setup
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('Service Worker Registered!'))
+                    .catch(err => console.error('Service Worker Registration Failed!', err));
+            });
+        }
+
+        let deferredPrompt;
+        const installBtn = document.getElementById('installPwaBtn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBtn.style.display = 'block';
+        });
+
+        installBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    console.log('User accepted the install prompt');
+                } else {
+                    console.log('User dismissed the install prompt');
+                }
+                deferredPrompt = null;
+                installBtn.style.display = 'none';
+            }
+        });
+
+        window.addEventListener('appinstalled', () => {
+            installBtn.style.display = 'none';
+            console.log('PWA was installed');
+        });
+    </script>
+</body>
+</html>
